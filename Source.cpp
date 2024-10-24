@@ -7,19 +7,34 @@
 #include <string>
 using namespace std;
 
+// Function prototype
+int countVowel(string str);
+
+int main() {
+    string input;
+    while (true) {
+        cout << "Enter a string or Q to quit: ";
+        getline(cin, input);
+
+        if (input == "Q") {
+            break;
+        }
+
+        int vowelCount = countVowel(input);
+        cout << "Vowel count: " << vowelCount << endl;
+    }
+    return 0;
+}
+
+// Function definition
 int countVowel(string str) {
     int count = 0;
     for (char c : str) {
-        c = tolower(c); // Convert character to lowercase
+        c = tolower(c);
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
             count++;
         }
     }
-    return count; // Return the number of vowels
+    return count;
 }
 
-int main() {
-    string testStr = "The quick brown fox"; // Test case
-    cout << "Number of vowels: " << countVowel(testStr) << endl;
-    return 0;
-}
